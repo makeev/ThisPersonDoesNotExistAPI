@@ -27,13 +27,13 @@ Why not? Use your imagination!
 
 ```python
 from thispersondoesnotexist import get_online_person
-picture = get_online_person()  # bytes representation of the image
+picture = await get_online_person()  # bytes representation of the image
 
 # Save to a file
 from thispersondoesnotexist import save_picture
-save_picture(picture, "a_beautiful_person.jpeg")
+await save_picture(picture, "a_beautiful_person.jpeg")
 # If no filename is provided, one will be generated using the checksum of the picture
-save_picture(picture)
+await save_picture(picture)
 
 ```
 
@@ -45,9 +45,9 @@ from thispersondoesnotexist import Person
 person = Person(fetch_online=True)
 
 # Save to a file
-person.save("a_beautiful_person.jpeg")
+await person.save("a_beautiful_person.jpeg")
 # If no filename is provided, one will be generated using the checksum of the picture
-person.save()
+await person.save()
 
 ```
 
@@ -63,7 +63,7 @@ person = Person(fetch_online=True)
 checksum = person.get_checksum("md5")
 
 # Using function
-picture = get_online_person()
+picture = await get_online_person()
 checksum2 = get_checksum_from_picture(picture)  # Method is optional, defaults to "md5"
 
 ```

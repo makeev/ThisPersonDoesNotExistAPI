@@ -15,8 +15,8 @@ class Person(object):
             self.set_from_online()
             self.get_checksum()
 
-    def set_from_online(self, params: dict = None, **kwargs) -> bytes:
-        self.picture = get_online_person(params, **kwargs)
+    async def set_from_online(self, params: dict = None, **kwargs) -> bytes:
+        self.picture = await get_online_person(params, **kwargs)
         return self.picture
 
     def get_checksum(self, method: str = "md5") -> str:
@@ -25,7 +25,7 @@ class Person(object):
             self.checksum[method] = checksum
         return checksum
 
-    def save(self, file: str = None) -> int:
+    async def save(self, file: str = None) -> int:
         """Save the picture of this person to a file.
         The picture must be provided as it content as bytes.
         The filename must be provided as a str with the absolute or relative path where to store it.
@@ -33,4 +33,4 @@ class Person(object):
         :param file: filename as string, relative or absolute path (optional)
         :return: int returned by file.write
         """
-        return save_picture(self.picture, file)
+        return await save_picture(self.picture, file)
