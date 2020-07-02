@@ -1,5 +1,10 @@
 # ThisPersonDoesNotExistAPI
 
+To install:
+
+`pip install thispersondoesnotexist`
+
+
 Unofficial "API" for the [ThisPersonDoesNotExist](https://thispersondoesnotexist.com/) website.
 
 ## What is ThisPersonDoesNotExist?
