@@ -1,9 +1,19 @@
+import asyncio
 import aiofiles
 import hashlib
 from hashlib import algorithms_available
 
-__all__ = ("get_checksum_from_picture", "algorithms_available", "save_picture")
+__all__ = ("get_checksum_from_picture", "algorithms_available", "save_picture", "run_and_get")
 
+
+def run_and_get(coro):
+    """
+    Creates a task, runs the task, and gets its results
+    Derived from `https://stackoverflow.com/questions/55696053/using-async-await-in-python-init-method`
+    """
+    task = asyncio.create_task(coro)
+    asyncio.get_running_loop().run_until_complete(task)
+    return task.result()
 
 def get_checksum_from_picture(picture: bytes, method: str = "md5") -> str:
     """Calculate the checksum of the provided picture, using the desired method.

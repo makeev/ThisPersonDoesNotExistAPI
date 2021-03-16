@@ -12,7 +12,7 @@ class Person(object):
         self.checksum: Dict[str, Optional[str]] = dict(zip(algorithms_available, repeat(None)))
 
         if fetch_online:
-            self.set_from_online()
+            run_and_get(self.set_from_online())
             self.get_checksum()
 
     async def set_from_online(self, params: dict = None, **kwargs) -> bytes:
