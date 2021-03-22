@@ -1,9 +1,11 @@
+import pytest
 import asyncio
+import nest_asyncio
+from ..thispersondoesnotexist.online_getter import get_online, save_online
 
-from thispersondoesnotexist import get_online, save_online
 
-
-async def main():
+@pytest.mark.asyncio
+async def test_main():
     # picture = await get_online_person()
     # print(picture)
 
@@ -11,5 +13,6 @@ async def main():
     await save_online('horse', 'test_horse.png')
 
 
+nest_asyncio.apply()
 loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+loop.run_until_complete(test_main())

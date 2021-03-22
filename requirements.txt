@@ -1,2 +1,6 @@
 aiohttp
 aiofiles
+pytest
+pytest-asyncio
+pycodestyle
+nest_asyncio
