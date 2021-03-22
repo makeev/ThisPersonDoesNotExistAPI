@@ -1,12 +1,5 @@
 name: Run pytest CI
-on:
-  push:
-    branches:
-      - auto
-      - master
-  pull_request:
-    branches:
-      - "**"
+on: push
 
 jobs:
   build:
