@@ -2,7 +2,7 @@ import aiohttp
 from .helpers import *
 
 URL_PERSON: str = "https://thispersondoesnotexist.com/image"
-URL_HORSE: str = "https://thishorsedoesnotexist.com/image"
+URL_HORSE: str = "https://thishorsedoesnotexist.com"
 
 
 async def get_online(thing_type: str) -> bytes:
